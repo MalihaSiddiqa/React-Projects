@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base canvas background (light lavender like the design background) */
+body {
+  background-color: #e0d8f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.card-grid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 80px;
+  row-gap: 100px;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* Card Container */
+.card-container {
+  width: 320px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(100, 80, 160, 0.15);
+}
+/* Image Header Section with Purple Gradient */
+.header-container {
+  position: relative;
+  height: 240px;
+  background: linear-gradient(135deg, #6c5a93 0%, #a28cc9 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 16px;
+  padding-top: 45px;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+}
+
+/* Product Image */
+.header-container img {
+  max-width: 85%;
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+/* Bookmark / Heart Icon position */
+.header-container svg,
+.header-container .Bookmark {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  padding: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  color: white;
+}
+
+/* Card Content Area */
+.main {
+  padding: 24px;
+}
+
+/* Title */
+.title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2229;
+  margin-bottom: 12px;
+}
+
+/* Tags Container */
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.tags p {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #4a4e5a;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+/* Product Description */
+.product-description {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6a6f7d;
+  margin-bottom: 24px;
+}
+
+/* Footer Section */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-container p {
+  font-size: 0.65rem;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+}
+.price-container h2 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1f2229;
+}
+
+/* Add To Cart Button */
+.add-btn {
+  background-color: #5c4d82;
+  color: #ffffff;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.add-btn:hover {
+  background-color: #4b3e6b;
+}
+
+.add-btn:active {
+  transform: scale(0.98);
+}
