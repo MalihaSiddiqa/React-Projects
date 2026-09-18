@@ -96,8 +96,8 @@ function App() {
   return(
   <>
   <div className="card-grid">
-    {productData.map((elem,idx)=>{
-      return <Card key={idx} 
+    {productData.map((elem)=>{
+      return <Card key={elem.id} 
       img={elem.productPicture}
       title={elem.productTitle}
       tag1={elem.tag1}
