@@ -3,7 +3,7 @@ import { useState } from "react"
 import { Loader } from "lucide-react"
 
 const Quotes = () => {
-    const [quote,setQuote]=useState({ text: "", author: "" })
+    const [quote,setQuote]=useState({ quotes: "", author: "" })
     const [loading,setLoading]=useState(false)
 
 async function fetchQuote() {
