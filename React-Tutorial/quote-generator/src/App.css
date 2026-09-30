@@ -1,0 +1,129 @@
+.container{
+  background-image: url("https://i.pinimg.com/564x/a0/ac/56/a0ac56930fe5fd36df311ba6382ba1d7.jpg");
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.quotes-container{
+  width:500px;
+  height:250px;
+  font-family: "Brush Scipt MT","Lucida Handwriting",cursive;
+  font-size: larger;
+}
+h2,p,small{
+  font-family: "Brush Scipt MT","Lucida Handwriting",cursive;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Fullscreen Background */
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://i.pinimg.com/564x/a0/ac/56/a0ac56930058b7eb4231b1480f2d9c44.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Frosted Glass Card */
+.quotes-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 12px 32px rgba(31, 38, 135, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.quotes-container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(31, 38, 135, 0.18);
+}
+
+/* Like Heart Button */
+.quotes-container span {
+  align-self: flex-end;
+  font-size: 22px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.quotes-container span:hover {
+  transform: scale(1.25);
+}
+
+/* Heading */
+.quotes-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1e293b;
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+/* Quote Body */
+.quotes-container p {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 19px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+/* Author */
+.quotes-container small {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+  display: block;
+}
+
+/* Generate Button */
+.quotes-container button {
+  font-family: 'Inter', sans-serif;
+  background: #1e293b;
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.25s ease;
+}
+
+.quotes-container button:hover {
+  background: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+
+.quotes-container button:active {
+  transform: translateY(0);
+}
