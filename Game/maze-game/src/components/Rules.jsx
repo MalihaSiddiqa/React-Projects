@@ -2,7 +2,7 @@ const Rules = (props) => {
   return (
     <div>
       <div className='fixed inset-0 bg-black/50 flex items-center justify-center z-50'>
-          <div className='bg-amber-600 border-4 border-black p-6 rounded-lg w-95 shadow-2xl relative'>
+          <div className='bg-amber-100 border-4 border-black p-6 rounded-lg w-95 shadow-2xl relative'>
             <h2 className='text-2xl font-bold mb-4 text-center text-amber-800'>
               Game Rules
             </h2>
