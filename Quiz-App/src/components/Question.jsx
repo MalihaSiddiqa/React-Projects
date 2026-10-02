@@ -5,7 +5,7 @@ import Result from "./Result.jsx";
 const Question = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState(null);
-const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
 
   const currQuestion = questions[currentIndex];
   const total = questions.length;
@@ -23,7 +23,7 @@ const [score, setScore] = useState(0);
   };
 
   if (!currQuestion) {
-    return <Result score={score} total={total}/>;
+    return <Result score={score} total={total} />;
   }
   return (
     <div className="flex flex-col gap-5">
@@ -35,17 +35,15 @@ const [score, setScore] = useState(0);
 
       <ul className="flex flex-col gap-2">
         {currQuestion.choices.map((choice) => {
-          const isSelected = selected === choice;
+         const isSelected= selected === choice
           const isCorrect = choice === currQuestion.answer;
-
-          // Determine styling based on whether an answer was picked
           let bgStyle = "bg-linear-135 from-slate-800 to-slate-700";
 
           if (selected !== null) {
             if (isCorrect) {
-              bgStyle = "bg-emerald-600 font-medium";
-            } else if (isSelected) {
-              bgStyle = "bg-rose-600 font-medium";
+              bgStyle = "bg-emerald-600 ";
+            } else if(isSelected) {
+              bgStyle = "bg-rose-600";
             }
           }
           return (
@@ -68,7 +66,7 @@ const [score, setScore] = useState(0);
           onClick={handleNext}
           className="w-full rounded-lg bg-linear-135 from-orange-500 to-amber-400 p-3 font-semibold text-white transition hover:scale-103"
         >
-        {currentIndex + 1 === total ? "Show Result" : "Next Question"}
+          {currentIndex + 1 === total ? "Show Result" : "Next Question"}
         </button>
       )}
     </div>
