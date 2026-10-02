@@ -126,6 +126,7 @@ const handleReset=()=>{
                     </button>
                   </td>
                 );
+                
               })}
             </tr>
           ))}
