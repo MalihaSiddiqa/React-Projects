@@ -6,7 +6,7 @@ import Result from './components/Result'
 const App = () => {
 
   // 'start' | 'running' | 'end'
-  const status = 'running'
+  const status = 'start'
 
   return (
     <div className='flex min-h-screen items-center justify-center p-4 text-white bg-linear-135 from-slate-950 to-slate-800'>
