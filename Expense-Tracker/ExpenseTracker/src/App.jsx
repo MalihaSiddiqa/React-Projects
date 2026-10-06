@@ -1,5 +1,5 @@
 import React from 'react'
-import Tasks from './components/Tasks'
+import Tasks from './components/Expenses'
 
 function App() {
   return (
