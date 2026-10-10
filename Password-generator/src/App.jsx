@@ -48,7 +48,7 @@ const App = () => {
 
   // Dynamic percentage for the strength bar
   const strengthPercentage = Math.min(
-    Math.round((passwordLength / 20) * 100),
+    Math.round((passwordLength / 12) * 100),
     100
   );
 
