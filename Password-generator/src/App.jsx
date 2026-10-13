@@ -75,7 +75,6 @@ const App = () => {
             <button
               onClick={() => setRegenerate((prev) => !prev)}
               className="p-2.5 bg-slate-800 hover:bg-slate-700 active:bg-slate-900 rounded-lg transition-colors cursor-pointer"
-              aria-label="Regenerate password"
             >
               <RefreshCcw className="size-5 text-slate-300" />
             </button>
