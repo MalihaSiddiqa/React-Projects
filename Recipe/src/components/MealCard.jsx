@@ -1,10 +1,4 @@
-import {useState } from "react";
-
 const MealCard = (props) => {
-    const [isSaved,setIsSaved]=useState(false)
-    const save=()=>{
-        setIsSaved(true)
-    }
   return (
     <div className="w-120 border rounded-2xl shadow-sm overflow-hidden m-2 bg-white border-none">
       <img src={props.Photo} 
