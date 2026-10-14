@@ -10,7 +10,7 @@ const MealCard = (props) => {
       <div className="px-4 pb-4">
         <button
           onClick={props.onToggleFavorite}
-          className={`w-full py-1.5 text-sm font-semibold rounded-lg border transition-colors ${
+          className={`px-3 py-1.5 mt-1 text-sm font-semibold rounded-lg border transition-colors ${
             props.isSaved
               ? "bg-orange-600 text-white"
               : "bg-white text-orange-600 border-orange-500 hover:bg-orange-50"
