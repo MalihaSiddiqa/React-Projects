@@ -1,12 +1,12 @@
-import { useEffect } from 'react'
-import {useState} from 'react'
-import MealCard from './components/MealCard'
+import { useEffect } from "react";
+import { useState } from "react";
+import MealCard from "./components/MealCard";
 
 const App = () => {
-   const [recipe,setRecipe]=useState([])
-   const [loading,setLoading]=useState(false)
-  const [searchRecipe,setSearchRecipe]=useState('')
-  const [error,setError]=useState(null)
+  const [recipe, setRecipe] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchRecipe, setSearchRecipe] = useState("");
+  const [error, setError] = useState(null);
 
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("meal_favorites");
@@ -16,44 +16,46 @@ const App = () => {
     localStorage.setItem("meal_favorites", JSON.stringify(favorites));
   }, [favorites]);
 
- const fetchRecipe=async ()=>{
-  setError(null);
-  setLoading(true)
-       try{
-       const response =await fetch("https://api.freeapi.app/api/v1/public/meals?page=1&limit=20")
-       const data = await response.json();
-       setRecipe(data?.data?.data || []);
-       console.log(data)
-       if (!data.success) {
+  const fetchRecipe = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const response = await fetch(
+        "https://api.freeapi.app/api/v1/public/meals?page=1&limit=20",
+      );
+      const data = await response.json();
+      setRecipe(data?.data?.data || []);
+      console.log(data);
+      if (!data.success) {
         throw new Error(data.message || "Failed to load recipes");
       }
       if (!response.ok) {
         throw new Error("Failed to fetch recipes from server");
       }
-       }catch(err){
+    } catch (err) {
       console.error("Failed to load Meals", err);
       setError(err.message || "Something went wrong while fetching recipes.");
-      } finally {
+    } finally {
       setLoading(false);
-      }
-  }
-  useEffect(()=>{
+    }
+  };
+  useEffect(() => {
     fetchRecipe();
-  },[])
+  }, []);
 
-   const filteredRecipes=recipe.filter((meal)=>{
-    return meal.strMeal?.toLowerCase().includes(searchRecipe.toLowerCase())
-   })
+  const filteredRecipes = recipe.filter((meal) => {
+    return meal.strMeal?.toLowerCase().includes(searchRecipe.toLowerCase());
+  });
 
-   const toggleFavorite = (mealId) => {
+  const toggleFavorite = (mealId) => {
     setFavorites((prevFavorites) =>
       prevFavorites.includes(mealId)
         ? prevFavorites.filter((id) => id !== mealId)
-        : [...prevFavorites, mealId]
+        : [...prevFavorites, mealId],
     );
   };
   return (
-<div className="min-h-screen bg-orange-100 p-6">
+    <div className="min-h-screen bg-orange-100 p-6">
       {/* Header & Controls Section */}
       <div className="w-full max-w-6xl mx-auto px-4 mb-8">
         {/* 1. Title strictly centered */}
@@ -84,9 +86,7 @@ const App = () => {
           </p>
         )}
         {error && (
-          <p className="text-center text-red-600 font-semibold mt-6">
-            {error}
-          </p>
+          <p className="text-center text-red-600 font-semibold mt-6">{error}</p>
         )}
         {!loading && !error && filteredRecipes.length === 0 && (
           <p className="text-center text-gray-600 mt-6">
@@ -114,4 +114,4 @@ const App = () => {
   );
 };
 
-export default App
+export default App;
