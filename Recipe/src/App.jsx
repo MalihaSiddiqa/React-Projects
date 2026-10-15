@@ -17,21 +17,19 @@ const App = () => {
   }, [favorites]);
 
   const fetchRecipe = async () => {
-    setError(null);
     setLoading(true);
     try {
       const response = await fetch(
         "https://api.freeapi.app/api/v1/public/meals?page=1&limit=20",
       );
       const data = await response.json();
-      setRecipe(data?.data?.data || []);
-      console.log(data);
       if (!data.success) {
         throw new Error(data.message || "Failed to load recipes");
       }
       if (!response.ok) {
         throw new Error("Failed to fetch recipes from server");
       }
+      setRecipe(data?.data?.data || []);
     } catch (err) {
       console.error("Failed to load Meals", err);
       setError(err.message || "Something went wrong while fetching recipes.");
@@ -56,26 +54,26 @@ const App = () => {
   };
   return (
     <div className="min-h-screen bg-orange-100 p-6">
-      {/* Header & Controls Section */}
       <div className="w-full max-w-6xl mx-auto px-4 mb-8">
-        {/* 1. Title strictly centered */}
+        {/* 1. Title */}
         <h1 className="text-6xl font-extrabold text-orange-500 text-center mb-6">
           Recipe Finder
         </h1>
 
-        {/* 2. Favorites badge aligned to the left right above the search box */}
+        {/* 2. Favorites badge  */}
         <div className="flex flex-col items-start gap-2 w-full">
           <span className="bg-orange-500 text-white px-4 py-1.5 rounded-full font-semibold text-sm shadow">
             Favorites: {favorites.length}
           </span>
 
-          {/* 3. Search Box taking the full width */}
+          {/* 3. Search Box */}
           <input
             type="text"
             placeholder="Search recipe.."
             value={searchRecipe}
             onChange={(e) => setSearchRecipe(e.target.value)}
-            className="w-full px-4 py-3 bg-white rounded-xl border border-orange-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-orange-500 text-base"
+            className="w-full px-4 py-3 bg-white rounded-xl border border-orange-300 shadow-sm 
+            focus:outline-none focus:ring-2 focus:ring-orange-500 text-base"
           />
         </div>
 
