@@ -15,10 +15,9 @@ const ProfileView = ({ image, name, email, phnNo, about, skills, customSections 
         <p className="text-stone-700">{skills}</p>
       </div>
 
-      {/* Render Custom Dynamic Sections */}
       {customSections?.map((section) => (
         <div key={section.id} className="mt-2 border-t pt-2 border-stone-300">
-          <h4 className="font-semibold text-stone-800">{section.title || "Custom Section"}</h4>
+          <h4 className="font-semibold text-stone-800">{section.title}</h4>
           <p className="text-stone-700 whitespace-pre-wrap">{section.value}</p>
         </div>
       ))}

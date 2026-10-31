@@ -12,10 +12,8 @@ const ProfileForm = ({ onAddProfile }) => {
     skills: "",
   });
 
-  // State to manage dynamic user-created sections
-  const [customSections, setCustomSections] = useState([]);
+  const [customSections, setCustomSections] = useState([])
 
-  // Handles standard text inputs
   const onChange = (e) => {
     setFormData({
       ...formData,
@@ -23,7 +21,7 @@ const ProfileForm = ({ onAddProfile }) => {
     });
   };
 
-  // Handles image upload and preview URL conversion
+
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -34,7 +32,7 @@ const ProfileForm = ({ onAddProfile }) => {
     }
   };
 
-  // Add a new empty custom section
+  
   const handleAddSection = () => {
     setCustomSections([
       ...customSections,
@@ -42,7 +40,7 @@ const ProfileForm = ({ onAddProfile }) => {
     ]);
   };
 
-  // Update title or content of a specific custom section
+
   const handleSectionChange = (id, field, text) => {
     setCustomSections(
       customSections.map((section) =>
@@ -51,12 +49,12 @@ const ProfileForm = ({ onAddProfile }) => {
     );
   };
 
-  // Remove a custom section
+
   const handleRemoveSection = (id) => {
     setCustomSections(customSections.filter((section) => section.id !== id));
   };
 
-  // Handles form submission
+  
   const OnCreateProfile = (e) => {
     e.preventDefault();
 
@@ -65,12 +63,10 @@ const ProfileForm = ({ onAddProfile }) => {
       customSections,
     };
 
-    // Save to App state/localStorage if handler is passed
     if (onAddProfile) {
       onAddProfile(completeProfile);
     }
 
-    // Open popup preview modal
     setViewProfile(true);
   };
 
@@ -84,7 +80,6 @@ const ProfileForm = ({ onAddProfile }) => {
         onSubmit={OnCreateProfile}
         className="flex flex-wrap p-12 w-full rounded-2xl justify-between"
       >
-        {/* Row 1: Image & Name */}
         <div className="flex flex-row w-full justify-around mb-6">
           <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
             <label
@@ -94,6 +89,7 @@ const ProfileForm = ({ onAddProfile }) => {
               Upload Image
             </label>
             <input
+              required
               id="imageUpload"
               type="file"
               accept="image/*"
@@ -111,6 +107,7 @@ const ProfileForm = ({ onAddProfile }) => {
               Enter Your Name
             </label>
             <input
+              required
               id="name"
               type="text"
               name="name"
@@ -122,7 +119,6 @@ const ProfileForm = ({ onAddProfile }) => {
           </div>
         </div>
 
-        {/* Row 2: Email & Phone Number */}
         <div className="flex flex-row w-full justify-around mb-6">
           <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
             <label
@@ -132,6 +128,7 @@ const ProfileForm = ({ onAddProfile }) => {
               Enter Your E-mail
             </label>
             <input
+              required
               id="email"
               type="email"
               name="email"
@@ -150,6 +147,7 @@ const ProfileForm = ({ onAddProfile }) => {
               Enter Your Phone No
             </label>
             <input
+              required
               id="phnNo"
               type="tel"
               name="phnNo"
@@ -161,7 +159,6 @@ const ProfileForm = ({ onAddProfile }) => {
           </div>
         </div>
 
-        {/* Row 3: About & Skills */}
         <div className="flex flex-row w-full justify-around mb-6">
           <div className="w-100 rounded-2xl shadow-2xl bg-stone-300 flex flex-col m-6 p-3">
             <label
@@ -171,6 +168,7 @@ const ProfileForm = ({ onAddProfile }) => {
               About Yourself
             </label>
             <textarea
+              required
               id="about"
               rows={4}
               name="about"
@@ -189,6 +187,7 @@ const ProfileForm = ({ onAddProfile }) => {
               Enter your skills
             </label>
             <textarea
+              required
               id="skills"
               rows={4}
               name="skills"
@@ -200,7 +199,6 @@ const ProfileForm = ({ onAddProfile }) => {
           </div>
         </div>
 
-        {/* Dynamic Custom Sections */}
         <div className="w-full flex flex-col items-center gap-6 my-4">
           {customSections.map((section) => (
             <div
@@ -243,7 +241,6 @@ const ProfileForm = ({ onAddProfile }) => {
             </div>
           ))}
 
-          {/* Add Section Button */}
           <button
             type="button"
             onClick={handleAddSection}
@@ -253,7 +250,6 @@ const ProfileForm = ({ onAddProfile }) => {
           </button>
         </div>
 
-        {/* Form Submit Button */}
         <div className="w-full flex justify-center mt-6">
           <button
             type="submit"
@@ -264,7 +260,6 @@ const ProfileForm = ({ onAddProfile }) => {
         </div>
       </form>
 
-      {/* Modal Popup Profile View */}
       {viewProfile && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50">
           <div className="bg-stone-100 p-6 rounded-3xl shadow-2xl relative max-w-lg w-full max-h-[90vh] overflow-y-auto">
