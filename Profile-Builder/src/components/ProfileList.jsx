@@ -4,7 +4,7 @@ import ProfileView from './ProfileView';
 
 const ProfileList = ({ profiles, deleteProfile }) => {
   const [selectedProfile, setSelectedProfile] = useState(null);
-  if (!profiles || profiles.length === 0) {
+  if (profiles.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center flex-1 m-8 p-10 bg-stone-200 rounded-3xl shadow-md text-stone-600">
         <h2 className="text-2xl font-serif font-semibold">No profiles found</h2>
@@ -111,7 +111,7 @@ const ProfileList = ({ profiles, deleteProfile }) => {
             >
               ✕
             </button>
-            
+
             <ProfileView
               image={selectedProfile.image}
               name={selectedProfile.name}

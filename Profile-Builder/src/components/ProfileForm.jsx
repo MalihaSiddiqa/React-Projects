@@ -208,7 +208,7 @@ const ProfileForm = ({ onAddProfile }) => {
               <button
                 type="button"
                 onClick={() => handleRemoveSection(section.id)}
-                className="absolute top-2 right-4 text-stone-500 hover:text-red-600 font-bold text-lg"
+                className="absolute top-2 right-4 text-stone-500 font-bold text-lg"
               >
                 ✕
               </button>
