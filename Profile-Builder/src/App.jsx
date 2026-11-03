@@ -30,11 +30,12 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-stone-100">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar page={page} showPage={showPage}/>
+  
       {page === "create" && <ProfileForm onAddProfile={addProfile} />}
         {page === 'profiles' && (
-  <ProfileList profiles={profiles} deleteProfile={deleteProfile} />
+      <ProfileList profiles={profiles} deleteProfile={deleteProfile} />
 )}
     </div>
   )

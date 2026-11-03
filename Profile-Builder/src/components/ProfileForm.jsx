@@ -12,7 +12,7 @@ const ProfileForm = ({ onAddProfile }) => {
     skills: "",
   });
 
-  const [customSections, setCustomSections] = useState([])
+  const [customSections, setCustomSections] = useState([]);
 
   const onChange = (e) => {
     setFormData({
@@ -20,7 +20,6 @@ const ProfileForm = ({ onAddProfile }) => {
       [e.target.name]: e.target.value,
     });
   };
-
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -32,14 +31,12 @@ const ProfileForm = ({ onAddProfile }) => {
     }
   };
 
-  
   const handleAddSection = () => {
     setCustomSections([
       ...customSections,
       { id: Date.now(), title: "", value: "" },
     ]);
   };
-
 
   const handleSectionChange = (id, field, text) => {
     setCustomSections(
@@ -49,12 +46,10 @@ const ProfileForm = ({ onAddProfile }) => {
     );
   };
 
-
   const handleRemoveSection = (id) => {
     setCustomSections(customSections.filter((section) => section.id !== id));
   };
 
-  
   const OnCreateProfile = (e) => {
     e.preventDefault();
 
@@ -71,201 +66,183 @@ const ProfileForm = ({ onAddProfile }) => {
   };
 
   return (
-    <div className="flex flex-col items-center flex-1 m-8 p-4 shadow-md shadow-stone-400 rounded-3xl bg-stone-200">
-      <h1 className="text-4xl font-serif p-3 border-b-2 border-stone-100">
-        Create your profile
-      </h1>
+    <div className="max-w-3xl m-auto my-8 p-6 bg-white shadow-sm rounded-xl ">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 pb-2 ">
+        Create Your Profile
+      </h2>
 
-      <form
-        onSubmit={OnCreateProfile}
-        className="flex flex-wrap p-12 w-full rounded-2xl justify-between"
-      >
-        <div className="flex flex-row w-full justify-around mb-6">
-          <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
-            <label
-              htmlFor="imageUpload"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
-              Upload Image
+      <form onSubmit={OnCreateProfile} className="space-y-6">
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="text-sm text-gray-700 mb-1">
+              Full Name
             </label>
             <input
               required
-              id="imageUpload"
-              type="file"
-              accept="image/*"
-              name="image"
-              onChange={handleImageChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500"
-            />
-          </div>
-
-          <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
-            <label
-              htmlFor="name"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
-              Enter Your Name
-            </label>
-            <input
-              required
-              id="name"
               type="text"
               name="name"
-              placeholder="Type Here.."
+              placeholder="Your name"
               value={formData.name}
               onChange={onChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg "
+            />
+          </div>
+
+          <div>
+            <label className="text-sm text-gray-700 mb-1">
+              Profile Photo
+            </label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-500"
             />
           </div>
         </div>
 
-        <div className="flex flex-row w-full justify-around mb-6">
-          <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
-            <label
-              htmlFor="email"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
-              Enter Your E-mail
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="text-sm text-gray-700 mb-1">
+              Email Address
             </label>
             <input
               required
-              id="email"
               type="email"
               name="email"
-              placeholder="Type Here.."
+              placeholder="Your email"
               value={formData.email}
               onChange={onChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
             />
           </div>
 
-          <div className="rounded-2xl shadow-2xl bg-stone-300 flex flex-col h-30 w-100 m-3 p-3">
-            <label
-              htmlFor="phnNo"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
-              Enter Your Phone No
+          <div>
+            <label className="text-sm text-gray-700 mb-1">
+              Phone Number
             </label>
             <input
               required
-              id="phnNo"
               type="tel"
               name="phnNo"
-              placeholder="Type Here.."
+              placeholder="+91"
               value={formData.phnNo}
               onChange={onChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
             />
           </div>
         </div>
 
-        <div className="flex flex-row w-full justify-around mb-6">
-          <div className="w-100 rounded-2xl shadow-2xl bg-stone-300 flex flex-col m-6 p-3">
-            <label
-              htmlFor="about"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm text-gray-700 mb-1">
               About Yourself
             </label>
             <textarea
               required
-              id="about"
-              rows={4}
+              rows={3}
               name="about"
-              placeholder="Type Here.."
+              placeholder="Brief summary about yourself..."
               value={formData.about}
               onChange={onChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500 resize-none overflow-hidden"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
             />
           </div>
 
-          <div className="w-100 rounded-2xl shadow-2xl bg-stone-300 flex flex-col m-6 p-3">
-            <label
-              htmlFor="skills"
-              className="font-serif border-stone-100 border-b text-xl pl-5 p-2"
-            >
-              Enter your skills
+          <div>
+            <label className="text-sm text-gray-700 mb-1">
+              Skills
             </label>
             <textarea
               required
-              id="skills"
-              rows={4}
+              rows={3}
               name="skills"
-              placeholder="Type Here.."
+              placeholder="React, JavaScript, HTML, CSS..."
               value={formData.skills}
               onChange={onChange}
-              className="bg-stone-100 m-2 p-2 rounded-2xl outline-none focus:ring-2 focus:ring-stone-500 resize-none overflow-hidden"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg"
             />
           </div>
         </div>
 
-        <div className="w-full flex flex-col items-center gap-6 my-4">
+        <div className="space-y-4 pt-2">
+          {customSections.length > 0 && (
+            <h3 className="font-bold">
+              Additional Sections
+            </h3>
+          )}
+
           {customSections.map((section) => (
             <div
               key={section.id}
-              className="w-100 rounded-2xl shadow-2xl bg-stone-300 flex flex-col p-4 relative"
+              className="p-4  rounded-lg relative space-y-3"
             >
               <button
                 type="button"
                 onClick={() => handleRemoveSection(section.id)}
-                className="absolute top-2 right-4 text-stone-500 font-bold text-lg"
+                className="absolute top-2 right-3 hover:text-red-500 text-lg font-bold"
               >
                 ✕
               </button>
 
-              <label className="font-serif border-stone-100 border-b text-sm pl-2 p-1 font-semibold">
-                Section Name
-              </label>
-              <input
-                type="text"
-                placeholder="e.g., Projects, Certifications, Hobbies..."
-                value={section.title}
-                onChange={(e) =>
-                  handleSectionChange(section.id, "title", e.target.value)
-                }
-                className="bg-stone-100 m-2 p-2 rounded-xl outline-none focus:ring-2 focus:ring-stone-500"
-              />
+              <div>
+                <label className="text-xs text-gray-600 mb-1">
+                  Section Title
+                </label>
+                <input
+                  type="text"
+                  placeholder="e.g. Projects, Certifications"
+                  value={section.title}
+                  onChange={(e) =>
+                    handleSectionChange(section.id, "title", e.target.value)
+                  }
+                  className="w-full px-3 py-1.5 bg-white border border-gray-300 rounded-md text-sm "
+                />
+              </div>
 
-              <label className="font-serif border-stone-100 border-b text-sm pl-2 p-1 font-semibold">
-                Section Content
-              </label>
-              <textarea
-                rows={3}
-                placeholder="Type section details here..."
-                value={section.value}
-                onChange={(e) =>
-                  handleSectionChange(section.id, "value", e.target.value)
-                }
-                className="bg-stone-100 m-2 p-2 rounded-xl outline-none focus:ring-2 focus:ring-stone-500 resize-none"
-              />
+              <div>
+                <label className="text-xs text-gray-600 mb-1">
+                  Section Content
+                </label>
+                <textarea
+                  rows={2}
+                  placeholder="Describe your achievements or details..."
+                  value={section.value}
+                  onChange={(e) =>
+                    handleSectionChange(section.id, "value", e.target.value)
+                  }
+                  className="w-full px-3 py-1.5 bg-white border border-gray-300 rounded-md text-sm "
+                />
+              </div>
             </div>
           ))}
 
           <button
             type="button"
             onClick={handleAddSection}
-            className="bg-stone-400 hover:bg-stone-500 text-stone-900 font-medium px-5 py-2 rounded-2xl shadow transition"
+            className="text-sm font-medium px-4 py-2 bg-blue-600 text-white rounded-lg"
           >
-            + Add Section
+            + Add Custom Section
           </button>
         </div>
 
-        <div className="w-full flex justify-center mt-6">
+        <div className="pt-4">
           <button
             type="submit"
-            className="bg-stone-500 hover:bg-stone-600 text-3xl text-white p-3 shadow-md rounded-2xl px-8"
+            className="w-full bg-blue-600 text-white font-medium py-2.5 rounded-lg shadow-sm"
           >
-            Create Profile
+            Save & View Profile
           </button>
         </div>
       </form>
 
+      {/* Preview Modal */}
       {viewProfile && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50">
-          <div className="bg-stone-100 p-6 rounded-3xl shadow-2xl relative max-w-lg w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 ">
+          <div className="bg-white rounded-xl shadow-lg max-w-md w-full p-6 relative  overflow-y-auto">
             <button
               onClick={() => setViewProfile(false)}
-              className="absolute top-4 right-5 text-gray-600 hover:text-black font-bold text-xl"
+              className="absolute top-3 right-4 text-gray-400 hover:text-gray-700 font-bold text-lg"
             >
               ✕
             </button>
