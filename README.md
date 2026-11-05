@@ -6,8 +6,8 @@ A collection of interactive React applications and mini-projects exploring core 
 
 ## 📂 Projects Included
 
-| Project Name | Description & Key Concepts Learned | Live Demo |
-| :--- | :--- | :--- |
+| Project Name | Description & Key Concepts Learned 
+| :--- | :--- 
 | **Expense Tracker** | Track income and expenses dynamically with real-time balance calculations. 
 | **Password Generator** | Secure, customizable password generator utilizing state management and clipboard APIs. 
 | **Product Card** | Clean, responsive product component showcasing layout styling and modern UI principles.
