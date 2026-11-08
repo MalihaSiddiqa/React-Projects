@@ -1,6 +1,6 @@
 # React Projects 🚀
 
-A collection of interactive React applications and mini-projects exploring core hooks, state management, modern UI design, and frontend development. Perfect for beginners looking to escape tutorial hell and build a strong portfolio for front-end developer roles.
+A collection of interactive React applications and mini-projects exploring core hooks, state management, modern UI design, dynamic routing, and frontend development.
 
 ---
 
