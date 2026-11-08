@@ -17,6 +17,7 @@ A collection of interactive React applications and mini-projects exploring core 
 | **Recipe Finder** | Recipe search application featuring API data retrieval, filtering, and rich card layouts.| [View Deployment](https://production-recipe-finder.onrender.com) |
 | **Maze Game** | Interactive 10x10 maze game featuring dynamic grid mapping and conditional status overlays. | *Coming Soon* |
 | **Dog Profile Card** | Simple and expressive component showcasing props and reusable design patterns. | *Coming Soon* |
+| **User Details** | Simple and expressive component showcasing props and reusable design patterns.| [View Deployment](https://user-details-hazel.vercel.app/) |
 
 ---
 
