@@ -45,7 +45,7 @@ To run any of these projects locally on your machine, follow these steps:
    npm install
 
 💡 Why These Projects?
-Building single-purpose, practical apps is the fastest way to understand core React concepts (like useState, useEffect, event handling, and component modularity). Feel free to explore, clone, and add these projects to your own frontend developer resume!
+Building single-purpose, practical apps is the fastest way to understand core React concepts (like useState, useEffect, event handling, and component modularity). Feel free to explore and clone.
 
 👩‍💻 Author
 Maliha Anjum Siddiqa
